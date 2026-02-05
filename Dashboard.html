@@ -24,7 +24,6 @@
 
     .container { padding: 20px; max-width: 500px; margin: 0 auto; }
 
-    /* HEADER */
     .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
     .stream-logo { height: 35px; width: auto; }
     .support-icon {
@@ -33,8 +32,6 @@
       border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); cursor: pointer;
     }
     .support-icon i { color: var(--card-dark); font-size: 22px; }
-
-    /* PROFILE SECTION */
     .dashboard-profile {
       background: white; padding: 18px; border-radius: 20px;
       display: flex; justify-content: space-between; align-items: center;
@@ -48,8 +45,6 @@
       background: #ffeded; color: #d32f2f; font-size: 10px; padding: 3px 10px;
       border-radius: 20px; font-weight: 800; cursor: pointer; border: 1px solid #ffcdd2;
     }
-
-    /* WALLET STACK */
     .wallet-stack { position: relative; height: 320px; margin-bottom: 10px; }
     .wallet-card { position: absolute; width: 100%; border-radius: 25px; padding: 22px; box-sizing: border-box; transition: all 0.3s ease; }
     .c-collab { background: var(--card-gold); top: 0; height: 160px; z-index: 1; color: #fff; }
@@ -64,18 +59,17 @@
     .main-val { font-size: 32px; font-weight: bold; }
     .eye-toggle { cursor: pointer; font-size: 22px; opacity: 0.7; padding: 5px; }
 
-    /* ACTIVATION ALERT */
     .activation-alert { background: rgba(244, 166, 34, 0.1); padding: 15px; border: 1px dashed #f4a622; border-radius: 15px; text-align: center; margin-bottom: 25px; }
     .alert-text { font-size: 13px; margin-bottom: 10px; color: #555; line-height: 1.4; }
     .alert-btn { background: #f4a622; color: #0b1a16; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer; }
 
-    /* QUICK ACTIONS */
+   
     .actions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
     .action-item { background: white; padding: 15px 10px; border-radius: 15px; text-align: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
     .action-item i { font-size: 28px; color: #0a3d62; margin-bottom: 8px; }
     .action-item p { margin: 0; font-size: 11px; font-weight: 600; }
 
-    /* MODALS & NAV */
+ 
     .modal-bg { position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: rgba(0,0,0,0.50); display: none; justify-content: center; align-items: center; backdrop-filter: blur(6px); z-index: 9999; }
     .modal-box { background: #fff; width: 85%; max-width: 380px; padding: 20px; border-radius: 20px; }
     .modal-box.fortune-style { background-color: #fdf59c; border-radius: 30px; text-align: center; padding: 30px 20px; position: relative; }
@@ -87,14 +81,156 @@
     .nav-item i { font-size: 22px; }
     .nav-item.active { background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 12px; }
 
-    /* LIVE NOTIFICATION */
     .stream-notification { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) scale(0.8); width: 92%; max-width: 380px; background: #fff; border-radius: 15px; display: flex; align-items: center; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); z-index: 10001; opacity: 0; visibility: hidden; transition: all 0.4s ease; cursor: pointer; border: 1.5px solid #1e3a34; }
     .stream-notification.show { opacity: 1; visibility: visible; transform: translateX(-50%) scale(1); }
     .live-tag { position: absolute; top: -10px; left: 20px; background: #ff0000; color: #fff; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 5px; animation: pulse 1.5s infinite; }
     @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+    #popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #popup {
+      background: #fff;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      padding: 20px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      animation: popupFadeIn 0.3s ease;
+    }
+
+    @keyframes popupFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+
+    .popup-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+
+    .popup-top .info {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .popup-top .timer {
+      font-weight: bold;
+      color: #ff5722;
+    }
+
+    .popup-top .close-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: none;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .popup-top .close-btn:hover {
+      background-color: #218838;
+    }
+
+    .popup-image {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+
+    #popup h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: black;
+    }
+
+    #popup p {
+      color: #444;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      color:black ;
+    }
+
+
+    .join-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .join-btn:hover {
+      background-color: #0056b3;
+    }
+    
+    
   </style>
 </head>
 <body>
+  <div id="popup-overlay">
+    <div id="popup">
+      <div class="popup-top">
+        <div class="info">
+          <i class="fa fa-info-circle"></i> Important info!!
+        </div>
+        <span class="timer" id="timer">10s</span>
+        <button class="close-btn" id="closeBtn">
+          <i class="fa fa-times"></i> Close
+        </button>
+      </div>
+
+      <img
+        src="about.jpg"
+        class="popup-image"
+        alt="pop up"
+      />
+
+      <h2>🚀New Month. New Level. Bigger Wins!</h2>
+      <p>Scaleheight is built for  everyone — creators, students, professionals, and gamers alike.
+Upgrade your Scaleheight plan and start scaling smarter in 2026 💸🔥
+Join our official channel now so you don’t miss out!</p>
+
+      <a href="#" target="_blank">
+        <button class="join-btn">Join Channel</button>
+      </a>
+    </div>
+  </div>
 
 <div class="container">
   <div class="header">
@@ -253,6 +389,26 @@ document.getElementById("user-display-name").innerText = name;
   }
   setTimeout(showNextNotification, 2000);
   setInterval(showNextNotification, 14000);
+
+  let countdown = 10;
+    const timerEl = document.getElementById("timer");
+    const closeBtn = document.getElementById("closeBtn");
+    const popupOverlay = document.getElementById("popup-overlay");
+
+    const interval = setInterval(() => {
+      countdown--;
+      timerEl.textContent = countdown + "s";
+
+      if (countdown <= 0) {
+        clearInterval(interval);
+        timerEl.style.display = "none";
+        closeBtn.style.display = "flex"; 
+      }
+    }, 1000);
+
+    closeBtn.addEventListener("click", () => {
+      popupOverlay.style.display = "none";
+    });
 </script>
 </body>
 </html>
